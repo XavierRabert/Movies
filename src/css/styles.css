@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    padding: 10px;
+}
+
+.wrapper{
+    width: 100%;
+    background-color: blue;    
+}
+
+.aside{
+    width: 15%;
+    background-color: red;
+    float: left;
+}
+
+.content{    
+    _background-color: green;
+    float: left;
+    width: 85%;
+}
+
+/*#region HEADER*/
+.header{
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.headerMenuButton{
+    color: #999;
+    font-size: 1.5em;
+    margin: 15px;
+    padding: 5px 10px;
+    border: 2px solid #999;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: 400ms all;
+}
+
+.headerMenuButton:hover{
+    background-color: #999;
+    color: white;    
+}
+
+.headerMenuActive{
+    background-color: #bbb;
+    color: white;    
+}
+
+.headerMenuText{
+    color: #999;
+    font-size: 1.5em;
+    margin: 15px;
+    padding: 8px;
+    padding-left: 12%;
+    border: 2px solid #999;
+    border-radius: 8px;
+    background-color: white;
+}
+
+
+.searchContainer{
+    position: relative;
+}
+
+.iconSearch{
+    position: absolute;
+    left: 8%;
+    top: 40%;
+    color: #999;
+}
+
+/*#endregion*/
+
+
+/*#region Trending*/
+.sliderContent{
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.trendingMovie{
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 30%;
+    min-width: 500px;
+    height: 280px;
+}
+
+.trendingMovie img{
+    position: absolute;
+}
+
+.movieName{
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    padding: 15px;
+    background-color: #fffe;
+    border-radius: 15px;
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.movieVoteAvg{
+    background-color: green;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+/*#endregion*/
