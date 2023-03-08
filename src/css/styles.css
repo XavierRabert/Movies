@@ -8,21 +8,34 @@ h2{
 }
 
 .wrapper{
-    width: 100%;
-    background-color: blue;    
-}
-
-.aside{
-    width: 15%;
-    background-color: red;
-    float: left;
+    width: 100%;    
+    _min-height: 100vh;
+    _background-color: blue;        
 }
 
 .content{    
-    _background-color: green;
     float: left;
     width: 85%;
+    _border-left: 2px solid #ccc inset;
 }
+
+/*#region Movie*/
+
+.movie{
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 15%;
+    min-width: 300px;
+    height: 165px;
+    float: left;
+}
+
+.movie img{
+    position: absolute;
+}
+/*#endregion*/
 
 /*#region HEADER*/
 .header{
@@ -78,6 +91,39 @@ h2{
 
 /*#endregion*/
 
+/*#region Aside*/
+aside{
+    width: 15%;
+    display: flex;    
+    _background-color: red;
+    float: left;
+}
+
+aside ul{
+    margin: 10px;
+    margin-top: 150px;
+    list-style: none;    
+}
+
+aside ul li{
+    
+    margin-left: 25px;
+    padding: 15px 0px;
+}
+
+aside ul li a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #444;
+    font-weight: bold;
+    transition: 100ms all;
+}
+
+aside ul li:hover a{
+    color: red;
+    padding-left: 15px;
+}
+/*#endregion*/
 
 /*#region Trending*/
 .sliderContent{
@@ -123,5 +169,25 @@ h2{
     text-align: center;
     color: #fff;
     font-weight: bold;
+}
+/*#endregion*/
+
+/*#region Footer*/
+footer{
+    background-color: #fff;
+    border-top: 2px solid #ccc;
+    height: 100px;
+    width: 100%;
+    _position: fixed;
+    bottom: 0px;
+    display: flex;    
+}
+footer a{
+    display: flex;
+}
+
+footer a img{
+    width: 100px;
+    padding-left: 50px;
 }
 /*#endregion*/

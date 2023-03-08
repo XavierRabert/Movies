@@ -2,7 +2,7 @@ import React from 'react'
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = ({ optionOnClick, trendingSearch }) => {
+const HeaderTrending = ({ optionOnClick, trendingSearch }) => {
     return (
         <div className='header'>
             <span
@@ -22,4 +22,4 @@ const Header = ({ optionOnClick, trendingSearch }) => {
     )
 }
 
-export default Header
+export default HeaderTrending
