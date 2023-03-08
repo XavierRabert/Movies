@@ -1,5 +1,4 @@
 
-
 const Movie = ({ title, id, imgUrl, vote_avg }) => {
     return (
         <div className="movie">

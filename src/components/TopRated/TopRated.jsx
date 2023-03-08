@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import HeaderTopRated from './HeaderTopRated';
 import Movie from '../Movie';
 import headers from '../../common/Headers'
+import { Link } from 'react-router-dom';
 
 const TopRated = () => {
 
@@ -29,13 +30,15 @@ const TopRated = () => {
             <HeaderTopRated optionOnClick={topRatedToSearch} trendingSearch={topRatedSearch} />
 
             {topRated === '' ? '' : topRated.map(movie => (
-                <Movie
-                    key={movie.id}
-                    title={topRatedSearch === 'movie' ? movie.title : movie.name}
-                    id={movie.id}
-                    imgUrl={movie.backdrop_path}
-                    vote_avg={movie.vote_average}
-                />
+                <Link to={`../movie/${movie.id}`}>
+                    <Movie
+                        key={movie.id}
+                        title={topRatedSearch === 'movie' ? movie.title : movie.name}
+                        id={movie.id}
+                        imgUrl={movie.backdrop_path}
+                        vote_avg={movie.vote_average}
+                    />
+                </Link>
             ))}
         </div>
     )
