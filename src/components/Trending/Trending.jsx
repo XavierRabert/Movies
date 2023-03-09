@@ -1,7 +1,7 @@
 import TrendingMovie from "./TrendingMovie"
 import Slider from 'react-slick'
 
-const Trending = ({ moviesTrending, trendingSearch }) => {
+const Trending = ({ moviesTrending, search }) => {
     console.log(moviesTrending);
 
 
@@ -49,7 +49,7 @@ const Trending = ({ moviesTrending, trendingSearch }) => {
                     <TrendingMovie
                         key={result.id}
                         id={result.id}
-                        title={trendingSearch === 'movie' ? result.title : result.name}
+                        title={search === 'movie' ? result.title : result.name}
                         imgUrl={result.backdrop_path}
                         vote_avg={result.vote_average}
                     />

@@ -1,32 +1,40 @@
 import { useEffect, useState } from 'react';
-import Header from './Trending/HeaderTrending';
+import Header from './Header';
 import Trending from './Trending/Trending';
+import Popular from './Popular/Popular';
 import headers from '../common/Headers'
 
 const Home = () => {
 
     const [trending, setTrending] = useState('')
-    const [trendingSearch, setTrendingSearch] = useState('movie')
+    const [popular, setPopular] = useState('')
+    const [search, setSearch] = useState('movie')
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`https://api.themoviedb.org/3/trending/${trendingSearch}/day`, headers)
-            const data = await response.json()
-            setTrending(data)
+            const responseTrending = await fetch(`https://api.themoviedb.org/3/trending/${search}/day`, headers)
+            const dataTrending = await responseTrending.json()
+            setTrending(dataTrending)
+
+
+            const responsePopular = await fetch(`https://api.themoviedb.org/3/${search}/popular`, headers)
+            const dataPopular = await responsePopular.json()
+            setPopular(dataPopular.results)
         }
 
         fetchData()
-        console.log(trendingSearch);
-    }, [trendingSearch])
+    }, [search])
 
-    const trendingToSearch = (search) => {
-        setTrendingSearch(search);
+    const ToSearch = (search) => {
+        setSearch(search);
     }
 
     return (
         <div>
-            <Header optionOnClick={trendingToSearch} trendingSearch={trendingSearch} />
-            {trending === '' ? '' : <Trending moviesTrending={trending} trendingSearch={trendingSearch} />}
+            <Header optionOnClick={ToSearch} search={search} />
+            {trending === '' ? '' : <Trending moviesTrending={trending} search={search} />}
+            {popular === '' ? '' : <Popular moviesPopular={popular} search={search} />}
+
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import HeaderTopRated from './HeaderTopRated';
-import Movie from '../Movie';
+import Header from '../Header';
+import Movie from '../Movie/Movie';
 import headers from '../../common/Headers'
 import { Link } from 'react-router-dom';
 
@@ -27,12 +27,10 @@ const TopRated = () => {
 
     return (
         <div>
-            <HeaderTopRated optionOnClick={topRatedToSearch} trendingSearch={topRatedSearch} />
-
+            <Header optionOnClick={topRatedToSearch} search={topRatedSearch} />
             {topRated === '' ? '' : topRated.map(movie => (
-                <Link to={`../movie/${movie.id}`}>
+                <Link to={`../${topRatedSearch}/${movie.id}`} key={movie.id}>
                     <Movie
-                        key={movie.id}
                         title={topRatedSearch === 'movie' ? movie.title : movie.name}
                         id={movie.id}
                         imgUrl={movie.backdrop_path}

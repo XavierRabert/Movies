@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import headers from '../common/Headers'
+import headers from '../../common/Headers'
 
 
 const DetailMovie = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState('')
+    const [movieImgs, setMovieImgs] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, headers)
             const data = await response.json()
             setMovie(data)
-            console.log(data)
+            //console.log(data)
+            const responseImages = await fetch(`https://api.themoviedb.org/3/movie/${id}/images`, headers)
+            const dataImages = await responseImages.json()
+            setMovieImgs(dataImages.backdrops.sort((a, b) => (b.vote_average - a.vote_average)).slice(0, 6))
 
         }
 
@@ -23,7 +27,23 @@ const DetailMovie = () => {
     if (!movie) return ('')
     return (
         <div className="detailMovie">
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
+            <div className='moviePosters'>
+                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt={movie.original_title}
+                    className="moviePoster" />
+                {movieImgs ?
+                    <div className='movieImages'>
+                        {movieImgs.map(img => (
+                            <img src={`https://image.tmdb.org/t/p/w500/${img.file_path}`}
+                                alt={movie.name}
+                                key={img.file_path}
+                                className="movieImg"
+                            />
+                        ))}
+
+                    </div>
+                    : ''}
+            </div>
             <div className="descMovie">
                 <div className="movieTitle">
                     <h3>{movie.original_title}</h3>
@@ -34,7 +54,7 @@ const DetailMovie = () => {
                     <div className="genresMovie">
                         <span className='descMovieTitle'>Generes: </span>
                         {movie.genres.map(gen => (
-                            <span className='descMovieValue'>{gen.name}</span>
+                            <span className='descMovieValue' key={gen.name}>{gen.name}</span>
                         ))}
                     </div>
                     : ''}
@@ -42,7 +62,7 @@ const DetailMovie = () => {
                     <div className="genresMovie">
                         <span className='descMovieTitle'>Languages: </span>
                         {movie.spoken_languages.map(lang => (
-                            <span className='descMovieValue'>{lang.english_name}</span>
+                            <span className='descMovieValue' key={lang.english_name}>{lang.english_name}</span>
                         ))}
                     </div>
                     : ''}

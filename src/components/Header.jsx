@@ -2,16 +2,16 @@ import React from 'react'
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const HeaderTrending = ({ optionOnClick, trendingSearch }) => {
+const Header = ({ optionOnClick, search }) => {
     return (
         <div className='header'>
             <span
                 onClick={() => optionOnClick('movie')}
-                className={(trendingSearch === 'movie') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
+                className={(search === 'movie') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
             >Movie</span>
             <span
                 onClick={() => optionOnClick('tv')}
-                className={(trendingSearch === 'tv') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
+                className={(search === 'tv') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
             >TV Show</span>
 
             <div className='searchContainer'>
@@ -22,4 +22,4 @@ const HeaderTrending = ({ optionOnClick, trendingSearch }) => {
     )
 }
 
-export default HeaderTrending
+export default Header

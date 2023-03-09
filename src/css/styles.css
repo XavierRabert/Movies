@@ -42,11 +42,25 @@ h2{
     display: flex;
 
 }
-
-.detailMovie img{
+.moviePosters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+.moviePoster{
+    width: 80%;
     padding: 15px;
     border-radius: 50px;    
+    display: block;
 }
+
+.movieImg{
+    padding: 5%;
+    width: 40%;
+    float: left;
+}
+
 .descMovie{
     padding: 15px;
     _float: left;    
@@ -121,7 +135,8 @@ h2{
 .header{
     padding: 25px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
+    border-bottom: 2px solid #ccc;
 }
 
 .headerMenuButton{
@@ -157,6 +172,16 @@ h2{
     background-color: white;
 }
 
+.headerMenuSelect{
+    color: #999;
+    font-size: 1.5em;
+    margin: 15px;
+    padding: 8px;    
+    border: 2px solid #999;
+    border-radius: 8px;
+    background-color: white;
+}
+
 
 .searchContainer{
     position: relative;
@@ -169,6 +194,19 @@ h2{
     color: #999;
 }
 
+/*#endregion*/
+
+/*#region Search Menu*/
+.searchListItems{
+    padding: 10px;
+    display: flex;    
+    justify-content: center;
+    border-bottom: 2px solid #ccc;
+    
+}
+.searchListItems li{
+    list-style: none;    
+}
 /*#endregion*/
 
 /*#region Aside*/
