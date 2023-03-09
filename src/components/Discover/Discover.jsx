@@ -1,5 +1,5 @@
 import SearchBar from "../SearchBar"
-import Header from "../Header"
+import OptionsBar from "../OptionsBar"
 import Movie from "../Movie/Movie"
 import headers from "../../common/Headers"
 import { useEffect, useState } from "react"
@@ -35,7 +35,7 @@ const Discover = () => {
 
     return (
         <div>
-            <Header optionOnClick={toSearch} search={search} />
+            <OptionsBar optionOnClick={toSearch} search={search} />
             <SearchBar
                 genre={genre}
                 onChangeGenre={setGenre}
@@ -44,18 +44,21 @@ const Discover = () => {
                 year={year}
                 onChangeYear={setYear} />
             <h2>Popular</h2>
-            {discovery === '' ? '' :
+            <div className='contentMovies'>
+                {discovery === '' ? '' :
 
-                discovery.map((movie) =>
-                    <Link to={`../${search}/${movie.id}`} key={movie.id}>
+                    discovery.map((movie) =>
+
                         <Movie
+                            key={movie.id}
                             title={search === 'movie' ? movie.title : movie.name}
                             id={movie.id}
                             imgUrl={movie.backdrop_path}
                             vote_avg={movie.vote_average}
+                            type={search}
                         />
-                    </Link>
-                )}
+                    )}
+            </div>
         </div>
     )
 }

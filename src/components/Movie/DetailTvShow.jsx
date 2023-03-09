@@ -8,6 +8,7 @@ const DetailTvShow = () => {
     const { id } = useParams()
     const [movie, setMovie] = useState('')
     const [movieImgs, setMovieImgs] = useState('')
+    const [movieCredits, setMovieCredits] = useState('')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +20,10 @@ const DetailTvShow = () => {
             const dataImages = await responseImages.json()
             setMovieImgs(dataImages.backdrops.sort((a, b) => (b.vote_average - a.vote_average)).slice(0, 6))
 
+            const responseCredits = await fetch(`https://api.themoviedb.org/3/tv/${id}/credits`, headers)
+            const dataCredits = await responseCredits.json()
+            setMovieCredits(dataCredits.cast.filter(cast => cast.order <= 10))
+            console.log('credits', dataCredits.cast.filter(cast => cast.order < 10))
         }
 
         fetchData()
@@ -71,6 +76,18 @@ const DetailTvShow = () => {
                 <span className='descMovieTitle'>Votes: </span><span className='descMovieValue'>{movie.vote_count}</span><br />
                 <span className='descMovieTitle'>Popularity: </span><span className='descMovieValue'>{movie.popularity}</span>
 
+                {movieCredits ?
+                    <div className="genresMovie">
+                        <div>
+                            <span className='descMovieTitle'>Credits: </span>
+                        </div>
+                        {movieCredits.map(credit => (
+                            <span className='descMovieValue' key={credit.id}>{credit.name}, </span>
+                        ))}
+                    </div>
+                    : ''}
+
+
                 {movie.belongs_to_collection ?
                     <div className="collectionMovie">
                         <div>
@@ -89,7 +106,7 @@ const DetailTvShow = () => {
                     <div className="companiesMovie">
                         <span className='descMovieTitle'>Companies: </span>
                         {movie.production_companies.map(comp => (
-                            <div className="companiMovie" key={comp.id}>
+                            <div className="companiMovie" key={comp.name} >
                                 {comp.logo_path ?
                                     <img src={`https://image.tmdb.org/t/p/w200/${comp.logo_path}`} alt={comp.name} className="imgCompMovie" />
                                     : ''

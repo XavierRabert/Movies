@@ -1,25 +1,30 @@
-import React from 'react'
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+import { Link } from 'react-router-dom'
+import { faHome, faCrosshairs } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import image from '../images/TBS.png'
 
-const Header = ({ optionOnClick, search }) => {
+const Options = () => {
     return (
-        <div className='header'>
-            <span
-                onClick={() => optionOnClick('movie')}
-                className={(search === 'movie') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
-            >Movie</span>
-            <span
-                onClick={() => optionOnClick('tv')}
-                className={(search === 'tv') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
-            >TV Show</span>
 
-            <div className='searchContainer'>
-                <FontAwesomeIcon icon={faSearch} className='iconSearch' />
-                <input type="text" className='headerMenuText' />
-            </div>
-        </div>
+        <header>
+            <img src={image}
+                className={'logo'}
+                alt="The Big Screen" />
+            <ul>
+                <li>
+                    <Link to='/'><FontAwesomeIcon icon={faHome} /> Home</Link>
+                </li>
+                <li>
+                    <Link to='/discover'><FontAwesomeIcon icon={faCrosshairs} /> Discover</Link>
+                </li>
+                <li>
+                    <Link to='/toprated'><FontAwesomeIcon icon={faStar} /> Top rated</Link>
+                </li>
+            </ul>
+        </header>
     )
 }
 
-export default Header
+export default Options

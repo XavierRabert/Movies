@@ -11,25 +11,47 @@ h2{
     width: 100%;    
     _min-height: 100vh;
     _background-color: blue;        
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.content{    
-    float: left;
-    width: 89%;
-    border-left: 2px solid #ccc;
+.content{
+    width: 90%;
+    border: 2px solid #ccc ;
+    border-bottom: 0px;
+}
+
+.contentMovies{    
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(180px, auto);
+    margin: 10px;
 }
 
 /*#region Movie*/
-
-.movie{
+.linkMovie{
+    display: flex;
+    background-color: #444;
+    height: 100%;
+    width: 300px;
     position: relative;
     margin: 10px;
     border-radius: 15px;
     overflow: hidden;
-    width: 15%;
-    min-width: 300px;
-    height: 165px;
-    float: left;
+}
+
+.movie{
+   
+    width: 100%;
+    height: 165px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .movie img{
@@ -131,9 +153,18 @@ h2{
 
 /*#endregion*/
 
-/*#region HEADER*/
+/*#region Similar Movies*/
+.similarMovies{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ccc;
+}
+/*#endregion*/
+
+/*#region OPTION MENU*/
 .header{
-    padding: 25px;
+    padding: 25px 0px;
+    width: 100%;
     display: flex;
     flex-direction: row;    
     border-bottom: 2px solid #ccc;
@@ -144,9 +175,9 @@ h2{
     font-size: 1.5em;
     margin: 15px;
     padding: 5px 10px;
-    border: 2px solid #999;
+    _border: 2px solid #999;
     border-radius: 8px;
-    background-color: white;
+    _background-color: white;
     cursor: pointer;
     transition: 400ms all;
 }
@@ -209,37 +240,46 @@ h2{
 }
 /*#endregion*/
 
-/*#region Aside*/
-aside{
-    width: 10%;
+/*#region Header*/
+header{
     display: flex;    
-    _background-color: red;
-    float: left;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;    
 }
 
-aside ul{
-    margin: 10px;
-    margin-top: 150px;
+.logo{
+    width: 250px;    
+    padding: 0px 100px;
+}
+
+header ul{
     list-style: none;    
+    display: flex;
+    padding: 0px 100px;
 }
 
-aside ul li{
-    
-    margin-left: 25px;
-    padding: 15px 0px;
+header ul li{        
+    padding: 10px;    
+    display: block;
 }
 
-aside ul li a{
+header ul li a{
     text-decoration: none;
     font-size: 1.2em;
     color: #444;
     font-weight: bold;
-    transition: 100ms all;
+    transition: 100ms all;    
+    display: block;
+    padding-bottom: 50px;
+    padding-right: 10px;
 }
 
-aside ul li:hover a{
+header ul li:hover a{
     color: red;
-    padding-left: 15px;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 /*#endregion*/
 
@@ -291,6 +331,7 @@ aside ul li:hover a{
 /*#endregion*/
 
 /*#region Footer*/
+
 footer{
     background-color: #fff;
     border-top: 2px solid #ccc;
@@ -309,3 +350,35 @@ footer a img{
     padding-left: 50px;
 }
 /*#endregion*/
+
+@media (max-width: 1650px){
+    .contentMovies{    
+        grid-template-columns: repeat(2, 1fr);        
+    }
+}
+
+@media (max-width: 1300px){
+    .contentMovies{    
+        grid-template-columns: repeat(3, 1fr);        
+    }
+}
+
+@media (max-width: 1100px){
+    .contentMovies{    
+        grid-template-columns: repeat(2, 1fr);        
+    }
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 725px){
+    .contentMovies{    
+        grid-template-columns: repeat(1, 1fr);        
+    }
+
+    .searchListItems{
+        flex-direction: column;
+    }
+}

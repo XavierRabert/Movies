@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Header from './Header';
+import OptionsBar from './OptionsBar';
 import Trending from './Trending/Trending';
 import Popular from './Popular/Popular';
 import headers from '../common/Headers'
@@ -31,7 +31,7 @@ const Home = () => {
 
     return (
         <div>
-            <Header optionOnClick={ToSearch} search={search} />
+            <OptionsBar optionOnClick={ToSearch} search={search} />
             {trending === '' ? '' : <Trending moviesTrending={trending} search={search} />}
             {popular === '' ? '' : <Popular moviesPopular={popular} search={search} />}
 

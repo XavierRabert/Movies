@@ -24,6 +24,7 @@ const SearchBar = ({ genre, onChangeGenre, region, onChangeRegion, year, onChang
             const today = new Date()
             var years = [], i = 1950, len = today.getFullYear();
             while (++i <= len) years.push(i);
+            years.sort((a, b) => (b - a))
             setYearList(years)
         }
 
@@ -40,11 +41,9 @@ const SearchBar = ({ genre, onChangeGenre, region, onChangeRegion, year, onChang
                         <option value='' >Genre</option>
                         {genreList ?
                             genreList.genres.map(gen => (
-                                <option value={gen.id} key={gen.id}>{gen.name}{gen.id}</option>
+                                <option value={gen.id} key={gen.id}>{gen.name}</option>
                             ))
                             : ''}
-
-
                     </select>
                 </li>
                 <li>
