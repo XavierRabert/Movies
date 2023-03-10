@@ -420,9 +420,11 @@ footer{
     .similarMovies {
         display: none;        
     }
+
     .contentMovies{    
         grid-template-columns: repeat(2, 1fr);        
     }
+
     header,
     .header{
         flex-direction: column;
@@ -430,6 +432,10 @@ footer{
     }
 
     header ul{
+        padding: 0;
+    }
+
+    .logo{
         padding: 0;
     }
 }
@@ -456,6 +462,13 @@ footer{
         width: auto;
         height: 100%;
     }
+    
+}
+
+@media (max-width:570px){
+    .trendingMovie{
+        min-width: 450px;     
+    }
 }
 
 @media(max-width: 500px){
@@ -473,5 +486,10 @@ footer{
     .footerSocial{
     
         padding: 5px;
-}
+    }
+
+    .trendingMovie{
+        min-width: 300px;     
+        height: 200px;
+    }
 }

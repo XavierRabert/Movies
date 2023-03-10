@@ -29,6 +29,14 @@ const Trending = ({ moviesTrending, search }) => {
                     slidesToScroll: 1,
                     initialSlide: 1
                 }
+            },
+            {
+                breakpoint: 560,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                }
             }
         ]
     };
