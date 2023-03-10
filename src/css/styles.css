@@ -21,7 +21,7 @@ h2{
     border: 2px solid #ccc ;
     border-bottom: 0px;
     background-color: #fffa;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .contentMovies{    
@@ -363,17 +363,46 @@ footer{
     width: 100%;
     bottom: 0px;
     display: flex;  
-    bottom: 0;  
+    justify-content: space-between;
+    _bottom: 0;  
 }
-footer a{
+.footerReferences,
+.footerSocial{
     display: flex;
+    padding: 50px;
 }
 
-footer a img{
-    width: 100px;
-    padding-left: 50px;
+.footerReferences a,
+.footerSocial a{
+    width: 110px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #444;
+}
+.footerSocial a{
+    width: 60px;    
+}
+
+
+.footerSocial a:hover{
+    font-size: 3.5em;
 }
 /*#endregion*/
+
+/*#region Not Found*/
+
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    font-weight: 700;
+    color: var(--main-dark-color);
+  }
+/*#endregion*/
+
 
 @media (max-width: 1650px){
     .contentMovies{    
@@ -420,7 +449,7 @@ footer a img{
 
     .detailMovie{    
         grid-template-columns: 1fr;
-        grid-template-rows: 150px 1fr;
+        grid-template-rows: 200px 1fr;
     }
 
     .moviePoster{
@@ -439,4 +468,10 @@ footer a img{
     .collectionMovie{
         display: none;
     }
+
+    .footerReferences,
+    .footerSocial{
+    
+        padding: 5px;
+}
 }

@@ -7,6 +7,7 @@ import DetailMovie from './components/Movie/DetailMovie';
 import DetailTvShow from './components/Movie/DetailTvShow';
 import Discover from './components/Discover/Discover';
 import SearchList from './components/SearchList';
+import NotFound from './components/NotFound';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/movie/:id' element={<DetailMovie />} />
             <Route path='/tv/:id' element={<DetailTvShow />} />
             <Route path='/search/:type/:item' element={<SearchList />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
 
         </div>
