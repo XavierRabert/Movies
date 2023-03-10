@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import headers from "../../common/Headers"
 import Movie from "./Movie"
 
@@ -19,7 +18,7 @@ const Similar = ({ id, type }) => {
         }
 
         fetchData()
-    }, [id])
+    }, [id, type])
 
 
 

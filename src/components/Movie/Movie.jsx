@@ -7,34 +7,36 @@ import { useEffect, useState } from "react";
 const Movie = ({ title, id, imgUrl, vote_avg, type }) => {
 
     const [like, setLike] = useState('')
+    let likeList = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : []
 
-    let likes = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : []
+    const inLikesList = likeList.includes(id)
 
     useEffect(() => {
-        setLike(likes.includes(id))
-    }, [])
+        setLike(inLikesList)
+    }, [inLikesList])
 
 
     const toggleLike = () => {
 
         // Search Local Storage
-        likes = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : []
+        likeList = localStorage.getItem(type) ? JSON.parse(localStorage.getItem(type)) : []
 
         if (like) {
-            const index = likes.indexOf(id);
+            const index = likeList.indexOf(id);
             if (index > -1) {
-                likes.splice(index, 1);
+                likeList.splice(index, 1);
             }
         } else {
-            likes = [...likes, id]
+            likeList = [...likeList, id]
         }
 
-        localStorage.setItem(type, JSON.stringify(likes))
+        localStorage.setItem(type, JSON.stringify(likeList))
 
         setLike(!like)
     }
     return (
         <div className="movie">
+            {likeList}
             <span className={like ? "movieLike movieLikeActive" : "movieLike"} onClick={toggleLike}><FontAwesomeIcon icon={faHeart} className='iconHeart' /></span>
 
             <Link to={`../${type}/${id}`} className={"linkMovie"}>
