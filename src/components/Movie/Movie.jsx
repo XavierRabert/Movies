@@ -36,7 +36,6 @@ const Movie = ({ title, id, imgUrl, vote_avg, type }) => {
     }
     return (
         <div className="movie">
-            {likeList}
             <span className={like ? "movieLike movieLikeActive" : "movieLike"} onClick={toggleLike}><FontAwesomeIcon icon={faHeart} className='iconHeart' /></span>
 
             <Link to={`../${type}/${id}`} className={"linkMovie"}>

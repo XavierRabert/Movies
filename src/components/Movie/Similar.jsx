@@ -4,7 +4,6 @@ import Movie from "./Movie"
 
 const Similar = ({ id, type }) => {
 
-    console.log('id', { id })
     const [movies, setMovies] = useState('')
 
     useEffect(() => {
@@ -12,7 +11,6 @@ const Similar = ({ id, type }) => {
             const response = await fetch(`https://api.themoviedb.org/3/${type}/${id}/similar`, headers)
             const data = await response.json()
 
-            console.log('similar', data)
             setMovies(data.results.slice(0, 5))
 
         }
