@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import OptionsBar from '../OptionsBar';
 import Movie from '../Movie/Movie';
 import headers from '../../common/Headers'
-import { Link } from 'react-router-dom';
 
 const TopRated = () => {
 
@@ -14,7 +13,6 @@ const TopRated = () => {
             const response = await fetch(`https://api.themoviedb.org/3/${topRatedSearch}/top_rated`, headers)
             const data = await response.json()
             setTopRated(data.results)
-            console.log(data);
         }
 
         fetchData()

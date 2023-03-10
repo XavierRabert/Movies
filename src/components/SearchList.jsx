@@ -28,7 +28,7 @@ const SearchList = () => {
         <div>
             <OptionsBar optionOnClick={typeToSearch} search={type} />
             <h2>Search</h2>
-            <div>
+            <div className='contentMovies'>
                 {movies === '' ? '' :
                     movies.map(movie => (
                         <Link to={`../${type}/${movie.id}`} key={movie.id}>

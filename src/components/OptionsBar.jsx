@@ -14,15 +14,16 @@ const OptionsBar = ({ optionOnClick, search }) => {
     }
     return (
         <div className='header'>
-            <span
-                onClick={() => optionOnClick('movie')}
-                className={(search === 'movie') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
-            >Movie</span>
-            <span
-                onClick={() => optionOnClick('tv')}
-                className={(search === 'tv') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
-            >TV Show</span>
-
+            <div className="headerMenuButtonContainer">
+                <span
+                    onClick={() => optionOnClick('movie')}
+                    className={(search === 'movie') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
+                >Movie</span>
+                <span
+                    onClick={() => optionOnClick('tv')}
+                    className={(search === 'tv') ? 'headerMenuButton headerMenuActive' : 'headerMenuButton'}
+                >TV Show</span>
+            </div>
             <div className='searchContainer'>
                 <FontAwesomeIcon icon={faSearch} className='iconSearch' />
                 <input type="text" className='headerMenuText' onKeyDown={(e) => enterSearch(e)} />

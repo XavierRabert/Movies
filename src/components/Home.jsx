@@ -16,7 +16,6 @@ const Home = () => {
             const dataTrending = await responseTrending.json()
             setTrending(dataTrending)
 
-
             const responsePopular = await fetch(`https://api.themoviedb.org/3/${search}/popular`, headers)
             const dataPopular = await responsePopular.json()
             setPopular(dataPopular.results)

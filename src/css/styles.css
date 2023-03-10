@@ -10,7 +10,7 @@ h2{
 .wrapper{
     width: 100%;    
     _min-height: 100vh;
-    _background-color: blue;        
+    background-color: rgb(182, 185, 6);        
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +21,8 @@ h2{
     width: 90%;
     border: 2px solid #ccc ;
     border-bottom: 0px;
+    background-color: #fffa;
+    height: 100%;
 }
 
 .contentMovies{    
@@ -32,49 +34,58 @@ h2{
     margin: 10px;
 }
 
-/*#region Movie*/
+/*#region Movie Target*/
 .linkMovie{
-    display: flex;
+    /* display: flex;
     background-color: #444;
     height: 100%;
-    width: 300px;
-    position: relative;
-    margin: 10px;
+    width: 300px; */
+    _position: relative;
+    /* margin: 10px;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden; */
+    width: 100%;
 }
 
-.movie{
-   
-    width: 100%;
+.movie{   
+    width: 90%;
     height: 165px;    
     display: flex;
     align-items: center;
     justify-content: center;
-
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;    
+    margin: 0 auto;
 }
 
 .movie img{
     position: absolute;    
+    width: 100%;
+    top: 0;
 }
 
+/*#endregion*/
+
+/*#region Movie Detail*/
 .detailMovie{    
     width: 100%;
     _background-color: pink;
-    display: flex;
-
+    display: grid;
+    grid-template-columns: 30% 1fr;
 }
 .moviePosters{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    _width: 40%;
 }
+
 .moviePoster{
-    width: 80%;
+    width: 100%;
     padding: 15px;
     border-radius: 50px;    
-    display: block;
+    _display: block;
 }
 
 .movieImg{
@@ -85,6 +96,7 @@ h2{
 
 .descMovie{
     padding: 15px;
+    _width: 50%;
     _float: left;    
 }
 
@@ -167,12 +179,19 @@ h2{
     width: 100%;
     display: flex;
     flex-direction: row;    
+    justify-content: center;
+    align-items: center;
     border-bottom: 2px solid #ccc;
+}
+
+.headerMenuButtonContainer{
+    display: flex;
 }
 
 .headerMenuButton{
     color: #999;
     font-size: 1.5em;
+    text-align: center;
     margin: 15px;
     padding: 5px 10px;
     _border: 2px solid #999;
@@ -201,6 +220,7 @@ h2{
     border: 2px solid #999;
     border-radius: 8px;
     background-color: white;
+    width: -webkit-fill-available;
 }
 
 .headerMenuSelect{
@@ -211,6 +231,7 @@ h2{
     border: 2px solid #999;
     border-radius: 8px;
     background-color: white;
+    width: -webkit-fill-available;
 }
 
 
@@ -243,6 +264,7 @@ h2{
 /*#region Header*/
 header{
     display: flex;    
+    background-color: #fff;
     width: 100%;
     flex-direction: row;
     align-items: flex-end;
@@ -281,6 +303,10 @@ header ul li:hover a{
     padding-bottom: 30px;
     padding-top: 20px;
 }
+
+.menuListActive a{
+    color: red;
+}
 /*#endregion*/
 
 /*#region Trending*/
@@ -307,7 +333,7 @@ header ul li:hover a{
     position: absolute;
     bottom: 5%;
     left: 3%;
-    padding: 15px;
+    padding: 10px;
     background-color: #fffe;
     border-radius: 15px;
     color: black;
@@ -318,15 +344,30 @@ header ul li:hover a{
 .movieVoteAvg{
     background-color: green;
     position: absolute;
-    bottom: 5%;
-    right: 5%;
-    height: 60px;
-    width: 60px;
+    top: 5%;
+    left: 5%;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    line-height: 60px;
+    line-height: 50px;
     text-align: center;
     color: #fff;
     font-weight: bold;
+}
+
+.movieLike {
+    position: absolute;
+    top: 5%;
+    right: 10%;    
+    height: 30px;
+    width: 30px;
+    color: white;  
+    z-index: 10;  
+    font-size: 2em;    
+}
+
+.movieLikeActive{
+    color: red;
 }
 /*#endregion*/
 
@@ -339,7 +380,9 @@ footer{
     width: 100%;
     _position: fixed;
     bottom: 0px;
-    display: flex;    
+    display: flex;  
+    _position: absolute;
+    bottom: 0;  
 }
 footer a{
     display: flex;
@@ -364,12 +407,20 @@ footer a img{
 }
 
 @media (max-width: 1100px){
+    .similarMovies {
+        display: none;        
+    }
     .contentMovies{    
         grid-template-columns: repeat(2, 1fr);        
     }
-    header{
+    header,
+    .header{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+    }
+
+    header ul{
+        padding: 0;
     }
 }
 
@@ -380,5 +431,31 @@ footer a img{
 
     .searchListItems{
         flex-direction: column;
+    }
+
+    .movieImages{
+        display: none;
+    }
+
+    .detailMovie{    
+        grid-template-columns: 1fr;
+        grid-template-rows: 150px 1fr;
+    }
+
+    .moviePoster{
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media(max-width: 500px){
+
+    header ul li {
+        padding: 0px;        
+    }
+
+    .companiesMovie,
+    .collectionMovie{
+        display: none;
     }
 }

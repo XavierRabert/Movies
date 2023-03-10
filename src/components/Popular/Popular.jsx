@@ -1,5 +1,4 @@
 import Movie from '../Movie/Movie';
-import { Link } from 'react-router-dom';
 
 const Popular = ({ moviesPopular, search }) => {
 

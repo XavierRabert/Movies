@@ -2,8 +2,6 @@ import TrendingMovie from "./TrendingMovie"
 import Slider from 'react-slick'
 
 const Trending = ({ moviesTrending, search }) => {
-    console.log(moviesTrending);
-
 
     const settings = {
         dots: true,
@@ -35,8 +33,6 @@ const Trending = ({ moviesTrending, search }) => {
         ]
     };
 
-
-
     if (!moviesTrending) return (
         <div>No Results</div>
     )
@@ -49,6 +45,7 @@ const Trending = ({ moviesTrending, search }) => {
                     <TrendingMovie
                         key={result.id}
                         id={result.id}
+                        type={search}
                         title={search === 'movie' ? result.title : result.name}
                         imgUrl={result.backdrop_path}
                         vote_avg={result.vote_average}

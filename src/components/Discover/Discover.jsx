@@ -3,7 +3,6 @@ import OptionsBar from "../OptionsBar"
 import Movie from "../Movie/Movie"
 import headers from "../../common/Headers"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 
 const Discover = () => {
 
@@ -18,14 +17,11 @@ const Discover = () => {
             const response = await fetch(
                 `https://api.themoviedb.org/3/discover/${search}?region=${region}&with_genres=${genre}&year=${year}`,
                 headers)
-            console.log(`https://api.themoviedb.org/3/discover/${search}?region=${region}&with_genres=${genre}&year=${year}`)
             const data = await response.json()
             setDiscovery(data.results)
-            console.log(data);
         }
 
         fetchData()
-        console.log('genre', genre)
 
     }, [search, genre, region, year])
 
