@@ -9,8 +9,7 @@ This project is a web application built with React that consumes The Movie Datab
 
 You can see the publiched project on [Netlify](https://landing-react-movies.netlify.app/)
 
-![747shots_so](https://github.com/XavierRabert/Movies/assets/115178344/77f4bd75-4f7f-44ae-8495-e9a3e2ccf7e8)
-
+![915shots_so](https://github.com/XavierRabert/Movies/assets/115178344/a7138a7f-25ec-4653-82b8-917e0bb3540f)
 
 ## Features
 
